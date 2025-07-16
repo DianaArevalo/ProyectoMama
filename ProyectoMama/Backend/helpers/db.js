@@ -1,15 +1,31 @@
 const mongoose = require('mongoose');
+const config = require('../config/config.json');
+
+const connectionOptions = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}
 
 
-const connectDB = async ()=> {
-    try {
-        await mongoose.connect(process.env.MONGO_URI);
-        console.info('conectado')
-    } catch (error) {
-        console.error("Error al conectar MongoDB:", error.message);
-                
-    }
-};
+let connect;
+if (config.db === 'local') {
+    connect = config.connectionStringLocal;
+} else if(config.db === 'remote') {
+    connect =  config.connectionStringRemote;
+}
+
+mongoose.connect(connect, connectionOptions)
+    .then(() => console.info('✅ Conectado a MongoDB'))
+    .catch(err => console.error('❌ Error al conectar MongoDB:', err));
 
 
-module.exports = connectDB;
+    mongoose.Promise = global.Promise;
+
+
+module.exports = {
+    Customer: require("../routes/info/ContactInfo.model").customer,
+    Partner: require("../routes/info/ContactInfo.model").partner,    
+    mongoose
+}
+
+
