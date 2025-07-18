@@ -13,7 +13,7 @@ var contactCustomerSchema = new Schema({
 })
 
 var contactTeamSchema = new Schema({
-    name: {type: String, required: true},
+    name: {type: String, required: true}, 
     email: {type: String, required: true},
     phone: {type: String},
     area: {

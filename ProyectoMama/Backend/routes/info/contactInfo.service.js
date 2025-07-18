@@ -13,7 +13,7 @@ module.exports = {
     deleteCustomer,
     getPartner,
     getPartners,
-    createPartner,
+    createPartner, 
     updatePartner,
     deletePartner
 }
