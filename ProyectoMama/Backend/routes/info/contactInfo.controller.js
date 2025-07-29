@@ -5,9 +5,8 @@ const contactInfoService = require('./contactInfo.service')
 
 //customer
 router.post('/getCustomer',  createCustomer);
-
-
 //partner
+router.post('/getPartner', createPartner)
 
 
 
@@ -30,4 +29,20 @@ async function createCustomer(req, res) {
     }
 }
 
+
+async function createPartner(req, res) {
+    try {
+        const partner = await contactInfoService.createPartner(req.body);
+        res.status(201).json({
+            message: 'Datos guardados correctamente',
+            data: partner
+        })
+    } catch (err) {
+        res.status(500).json({
+            message: 'Error al guardar los datos',
+            error: err.message
+        })        
+    }
+    
+}
 
