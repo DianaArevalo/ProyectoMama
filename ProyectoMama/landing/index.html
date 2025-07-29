@@ -122,7 +122,8 @@
                 <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center">
                     <i class="fas fa-leaf text-primary-600"></i>
                 </div>
-                <a href="http://127.0.0.1:5500/ProyectoMama/landing/index.html" class="font-serif text-2xl font-bold text-primary-700">Aura Esperanza Vitae</a>
+                <a href="#" id="logo-click" class="font-serif text-2xl font-bold text-primary-700">Aura Esperanza Vitae</a>
+                
             </div>
             
             <nav class="hidden lg:flex space-x-10">
@@ -162,6 +163,13 @@
             </div>
         </div>
     </header>
+
+    <script>
+        document.getElementById('logo-click').addEventListener('click', function (e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    </script>
 
     <!-- Hero Section -->
     <section class="hero-pattern pt-36 pb-24 px-6">
