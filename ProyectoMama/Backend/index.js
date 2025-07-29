@@ -14,7 +14,7 @@ connectDB();
 const PORT = process.env.PORT || 3200;
 
 // Rutas
-app.use('/customer', require('./routes/info/contactInfo.controller'));
+app.use('/info', require('./routes/info/contactInfo.controller'));
 
 // Servidor
 app.listen(PORT, () => {
